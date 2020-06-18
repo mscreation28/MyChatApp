@@ -11,8 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <include layout="@layout/app_bar_layout" android:id="@+id/main_page_appbar"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorWhite"
+            android:id="@+id/main_tabs"/>
+
     </com.google.android.material.appbar.AppBarLayout>
 
-
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_pager"/>
 
 </LinearLayout>
