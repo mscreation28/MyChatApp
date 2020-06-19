@@ -67,10 +67,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-        if(item.getItemId()==R.id.main_logout){
-            mAuth.signOut();
-            Log.d(TAG, "onOptionsItemSelected: log out");
-            sendToStart();
+        switch(item.getItemId())
+        {
+            case R.id.main_logout:
+                mAuth.signOut();
+                Log.d(TAG, "onOptionsItemSelected: log out");
+                sendToStart();
+                break;
+            case  R.id.account_setting:
+                Intent settingIntent = new Intent(MainActivity.this,SettingActivity.class);
+                startActivity(settingIntent);
+                break;
         }
 
         return true;

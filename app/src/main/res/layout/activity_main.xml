@@ -15,10 +15,14 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:tabTextColor="@color/colorWhite"
             android:backgroundTint="@color/colorWhite"
+            app:tabIndicatorColor="@color/colorWhite"
             android:id="@+id/main_tabs"/>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
