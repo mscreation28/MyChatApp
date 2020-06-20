@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:weightSum="100">
+    
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/single_user_thumb"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:paddingBottom="7dp"
+        android:layout_weight="25"
+        android:src="@drawable/default_avtar">
+
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_weight="75"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/single_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Display Name"
+            android:textColor="@color/colorBlack"
+            android:gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_weight="50"/>
+
+        <TextView
+            android:id="@+id/single_user_status"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="User Default Status"
+            android:layout_weight="50"/>
+
+    </LinearLayout>
+
+</LinearLayout>
