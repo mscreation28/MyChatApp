@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -59,6 +60,17 @@ public class AllUserActivity extends AppCompatActivity {
                 holder.setDisplayName(model.getName());
                 holder.setStatus(model.getStatus());
                 holder.setUserImage(model.getThumb_image(),getApplicationContext());
+
+                final String user_id = getRef(position).getKey();
+
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent profileIntent = new Intent(AllUserActivity.this,ProfileActivity.class);
+                        profileIntent.putExtra("user_id",user_id);
+                        startActivity(profileIntent);
+                    }
+                });
                 Log.d(TAG, "onBindViewHolder: Counted");
             }
             @NonNull
@@ -121,9 +133,7 @@ public class AllUserActivity extends AppCompatActivity {
         public void setUserImage(String thumb_image, Context ctx) {
             CircleImageView thumbImageView = (CircleImageView) mView.findViewById(R.id.single_user_thumb);
 
-            if(!thumb_image.equals("default")) {
-                Picasso.get().load(thumb_image).placeholder(R.drawable.default_avtar).into(thumbImageView);
-            }
+            Picasso.get().load(thumb_image).placeholder(R.drawable.default_avtar).into(thumbImageView);
         }
     }
 }

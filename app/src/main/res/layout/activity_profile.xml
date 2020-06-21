@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/profileview_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_avtar" />
+
+    <TextView
+        android:id="@+id/profileview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Display Name"
+        android:textColor="@color/colorWhite"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileview_image" />
+
+    <TextView
+        android:id="@+id/profileview_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="User Status"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileview_name" />
+
+    <Button
+        android:id="@+id/send_request_btn"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorGreen"
+        android:text="Send Friend Request"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileview_friend_count" />
+
+    <TextView
+        android:id="@+id/profileview_friend_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:text="Total Friedns"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileview_status" />
+
+    <Button
+        android:id="@+id/decline_friend_req"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorGreen"
+        android:text="decline friend request"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_request_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
