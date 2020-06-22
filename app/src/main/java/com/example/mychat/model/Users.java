@@ -5,16 +5,16 @@ public class Users {
     public String name;
     public String status;
     public String image;
-    public String thumb_image;
+    public String thumb_img;
 
     public Users() {
     }
 
-    public Users(String name, String status, String image,String thumb_image) {
+    public Users(String name, String status, String image,String thumb_img) {
         this.name = name;
         this.status = status;
         this.image = image;
-        this.thumb_image = thumb_image;
+        this.thumb_img = thumb_img;
     }
 
     public String getName() {
@@ -41,11 +41,11 @@ public class Users {
         this.image = image;
     }
 
-    public String getThumb_image() {
-        return thumb_image;
+    public String getThumb_img() {
+        return thumb_img;
     }
 
     public void setThumb_image(String thumb_image) {
-        this.thumb_image = thumb_image;
+        this.thumb_img = thumb_img;
     }
 }

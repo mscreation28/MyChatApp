@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.HashMap;
 
@@ -86,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             String uid = user.getUid();
+                            String deviceTokenId = FirebaseInstanceId.getInstance().getToken();
 
                             mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
 
@@ -94,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                             userMap.put("status","Hey there, I am using MyChatApp");
                             userMap.put("image","default");
                             userMap.put("thumb_img","default");
+                            userMap.put("device_token",deviceTokenId);
 
                             mDatabaseRef.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override

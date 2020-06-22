@@ -59,7 +59,7 @@ public class AllUserActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull UserViewHolder holder, int position, @NonNull Users model) {
                 holder.setDisplayName(model.getName());
                 holder.setStatus(model.getStatus());
-                holder.setUserImage(model.getThumb_image(),getApplicationContext());
+                holder.setUserImage(model.getThumb_img(),getApplicationContext());
 
                 final String user_id = getRef(position).getKey();
 
@@ -130,10 +130,10 @@ public class AllUserActivity extends AppCompatActivity {
             statusView.setText(status);
         }
 
-        public void setUserImage(String thumb_image, Context ctx) {
+        public void setUserImage(String thumb_img, Context ctx) {
             CircleImageView thumbImageView = (CircleImageView) mView.findViewById(R.id.single_user_thumb);
 
-            Picasso.get().load(thumb_image).placeholder(R.drawable.default_avtar).into(thumbImageView);
+            Picasso.get().load(thumb_img).placeholder(R.drawable.default_avtar).into(thumbImageView);
         }
     }
 }

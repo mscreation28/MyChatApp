@@ -94,7 +94,7 @@ public class SettingActivity extends AppCompatActivity {
                 String name = dataSnapshot.child("name").getValue().toString();
                 final String image = dataSnapshot.child("image").getValue().toString();
                 String status = dataSnapshot.child("status").getValue().toString();
-                String thumb_img = dataSnapshot.child("thumb_image").getValue().toString();
+                String thumb_img = dataSnapshot.child("thumb_img").getValue().toString();
 
                 mDisplayName.setText(name);
                 mStatus.setText(status);
@@ -237,7 +237,7 @@ public class SettingActivity extends AppCompatActivity {
                                                     final String thumb__download_url = uri.toString();
                                                     Map<String,Object> update_hashmap = new HashMap<>();
                                                     update_hashmap.put("image",download_url);
-                                                    update_hashmap.put("thumb_image",thumb__download_url);
+                                                    update_hashmap.put("thumb_img",thumb__download_url);
 
                                                     mUserDatabase.updateChildren(update_hashmap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
