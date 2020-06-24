@@ -211,8 +211,8 @@ public class ProfileActivity extends AppCompatActivity {
                     Map acceptFriendMap = new HashMap();
                     acceptFriendMap.put("Friend_req/"+mCurrentUser.getUid()+"/"+userId,null);
                     acceptFriendMap.put("Friend_req/"+userId+"/"+mCurrentUser.getUid(),null);
-                    acceptFriendMap.put("Friends/"+mCurrentUser.getUid()+"/"+userId,currentDate);
-                    acceptFriendMap.put("Friends/"+userId+"/"+mCurrentUser.getUid(),currentDate);
+                    acceptFriendMap.put("Friends/"+mCurrentUser.getUid()+"/"+userId+"/date",currentDate);
+                    acceptFriendMap.put("Friends/"+userId+"/"+mCurrentUser.getUid()+"/date",currentDate);
 
                     mRootRef.updateChildren(acceptFriendMap, new DatabaseReference.CompletionListener() {
                         @Override
@@ -281,4 +281,5 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.mychat.model.Users;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -32,7 +33,10 @@ public class AllUserActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private RecyclerView mUserList;
 
+    private FirebaseAuth mAuth;
+
     private DatabaseReference mUserDatabaseRef;
+    private DatabaseReference mUserDatabase;
     FirebaseRecyclerOptions<Users> options;
     FirebaseRecyclerAdapter<Users, UserViewHolder> firebaseRecyclerAdapter;
 
@@ -47,6 +51,8 @@ public class AllUserActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mUserDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        mAuth = FirebaseAuth.getInstance();
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
         mUserList = (RecyclerView) findViewById(R.id.users_list);
         mUserList.setHasFixedSize(true);
@@ -94,6 +100,7 @@ public class AllUserActivity extends AppCompatActivity {
         Log.d(TAG, "onStart: start");
         if(firebaseRecyclerAdapter!=null)
             firebaseRecyclerAdapter.startListening();
+//        mUserDatabase.child("online").setValue(true);
     }
 
     @Override
@@ -102,6 +109,7 @@ public class AllUserActivity extends AppCompatActivity {
         Log.d(TAG, "onStop: stop");
         if(firebaseRecyclerAdapter!=null)
             firebaseRecyclerAdapter.stopListening();
+//        mUserDatabase.child("online").setValue(false);
     }
 
     @Override

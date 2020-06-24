@@ -268,16 +268,4 @@ public class SettingActivity extends AppCompatActivity {
             }
         }
     }
-
-//    public static String randomName() {
-//        Random generator = new Random();
-//        StringBuilder randomString = new StringBuilder();
-//        int randomLength = generator.nextInt(10);
-//        char tempchar;
-//        for (int i=0; i<randomLength; i++) {
-//            tempchar = (char) (generator.nextInt(96) +32);
-//            randomString.append(tempchar);
-//        }
-//        return randomString.toString();
-//    }
 }
