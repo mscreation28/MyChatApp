@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,15 +62,17 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
-            mUserRef.child("online").setValue(true);
+            mUserRef.child("online").setValue("true");
         }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if(mUserRef!=null)
-            mUserRef.child("online").setValue(false);
+        if(mUserRef!=null) {
+            mUserRef.child("online").setValue(ServerValue.TIMESTAMP);
+        }
+
     }
 
     @Override

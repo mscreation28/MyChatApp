@@ -99,11 +99,11 @@ public class FriendsFrag extends Fragment {
                 mUsersDatabase.child(list_user_id).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String userName = dataSnapshot.child("name").getValue().toString();
+                        final String userName = dataSnapshot.child("name").getValue().toString();
                         String userThumb = dataSnapshot.child("thumb_img").getValue().toString();
 
                         if(dataSnapshot.hasChild("online")) {
-                            boolean userOnline = (boolean) dataSnapshot.child("online").getValue();
+                            String userOnline = dataSnapshot.child("online").getValue().toString();
                             friendsViewHolder.setUserOnline(userOnline);
                         }
                         friendsViewHolder.setName(userName);
@@ -129,6 +129,7 @@ public class FriendsFrag extends Fragment {
                                         if(which==1) {
                                             Intent chatIntent = new Intent(getContext(), ChatActivity.class);
                                             chatIntent.putExtra("user_id",list_user_id);
+                                            chatIntent.putExtra("user_name",userName);
                                             startActivity(chatIntent);
                                         }
                                     }
@@ -200,9 +201,9 @@ public class FriendsFrag extends Fragment {
             Picasso.get().load(thumb_img).placeholder(R.drawable.default_avtar).into(thumbImageView);
         }
 
-        public void setUserOnline(boolean userOnline) {
+        public void setUserOnline(String userOnline) {
             ImageView userOnlineView = (ImageView) mView.findViewById(R.id.single_onine_icon);
-            if(userOnline==true) {
+            if(userOnline.equals("true")) {
                 userOnlineView.setVisibility(View.VISIBLE);
             }
             else {
